@@ -1,18 +1,23 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "beforeBuildCommand": "pnpm next-build",
-    "beforeDevCommand": "pnpm next-start",
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
     "devPath": "http://localhost:3000",
     "distDir": "../out"
   },
   "package": {
-    "productName": "tauri-nextjs-template",
+    "productName": "Gitrends",
     "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
-      "all": true
+      "notification": {
+        "all": true
+      },
+      "shell": {
+        "open": true
+      }
     },
     "bundle": {
       "active": true,
@@ -29,7 +34,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.ikramhasan.gg",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -51,16 +56,30 @@
       "csp": null
     },
     "updater": {
-      "active": false
+      "active": true,
+      "endpoints": [
+        "https://github.com/ikramhasan/gitrends/releases/latest/download/latest.json"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEQ3MzdCNURDRjQ4QUM1QzMKUldURHhZcjAzTFUzMTdxRzFpckN2WTNtNjdMSjNCNU5uSEdUQTM4aEZ5SjRMOVNsKzBCTitVNU4K"
     },
     "windows": [
       {
         "fullscreen": false,
-        "resizable": true,
-        "title": "Tauri NextJS App",
-        "width": 1280,
-        "height": 800
+        "resizable": false,
+        "title": "Gitrends: Trending GitHub Repositories",
+        "height": 850,
+        "width": 512,
+        "visible": false,
+        "hiddenTitle": true,
+        "decorations": false,
+        "focus": false
       }
-    ]
+    ],
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true,
+      "menuOnLeftClick": false
+    }
   }
 }
