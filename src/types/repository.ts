@@ -1,4 +1,4 @@
-type Repository = {
+interface Repository {
   author: string;
   name: string;
   avatar: string;
@@ -14,4 +14,6 @@ type Repository = {
     href: string;
     avatar: string;
   }[];
-};
+}
+
+export default Repository;

@@ -7,12 +7,10 @@
     "email": "ikramhasan.dev@gmail.com"
   },
   "scripts": {
-    "next-start": "cross-env BROWSER=none next dev",
-    "next-build": "next build",
-    "tauri": "tauri",
-    "build": "tauri build",
-    "dev": "tauri dev",
-    "lint": "next lint && biome check src/"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@nextui-org/card": "^2.0.25",

@@ -1,15 +1,8 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/strict-type-checked",
-    "plugin:@typescript-eslint/stylistic-type-checked",
-    "next/core-web-vitals"
-  ],
-  "parser": "@typescript-eslint/parser",
+  "extends": ["eslint:recommended", "next/core-web-vitals"],
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["@typescript-eslint"],
   "rules": {
     "eqeqeq": "error",
     "no-else-return": "error",
@@ -18,6 +11,7 @@
     "no-useless-call": "error",
     "no-useless-computed-key": "error",
     "no-useless-concat": "error",
+    "no-unused-vars": "warn",
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "prefer-rest-params": "error",

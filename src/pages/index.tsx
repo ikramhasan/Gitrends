@@ -2,11 +2,12 @@ import MainNav from "@/components/Navbar";
 import RepositoryCard from "@/components/RepositoryCard";
 import Loading from "@/components/Spinner";
 import { useGlobalShortcut } from "@/hooks/tauri/shortcuts";
-import { Button, ButtonGroup, Tab, Tabs } from "@nextui-org/react";
+import { Button, ButtonGroup } from "@nextui-org/react";
 import { invoke } from "@tauri-apps/api/tauri";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
+import Repository from "@/types/repository";
 
 const Home: NextPage = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
@@ -16,9 +17,9 @@ const Home: NextPage = () => {
   useEffect(() => {
     setIsLoading(true);
     invoke<Repository[]>("fetch_trending_repos", { language: activeTab })
-      .then(function (result) {
+      .then((result) => {
         setIsLoading(false);
-        return setRepositories(result);
+        setRepositories(result);
       })
       .catch(console.error);
   }, [activeTab]);
@@ -28,7 +29,7 @@ const Home: NextPage = () => {
   }, []);
   useGlobalShortcut("CommandOrControl+P", shortcutHandler);
 
-  let tabs = [
+  const tabs = [
     {
       id: "all",
       label: "All",
@@ -71,7 +72,9 @@ const Home: NextPage = () => {
             {tabs.map((tab) => (
               <Button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                }}
                 color={activeTab === tab.id ? "primary" : "default"}
                 variant={activeTab === tab.id ? "solid" : "ghost"}
               >

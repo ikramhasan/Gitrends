@@ -1,10 +1,11 @@
 import ForkIcon from "@/assets/ForkIcon";
 import StarIcon from "@/assets/StarIcon";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
-import { Avatar, AvatarGroup, Chip, Divider, Link } from "@nextui-org/react";
+import { Avatar, AvatarGroup, Chip, Divider } from "@nextui-org/react";
 import React from "react";
+import Repository from "@/types/repository";
 
-var HRNumbers = require("human-readable-numbers");
+const HRNumbers = require("human-readable-numbers");
 
 const RepositoryCard = (repo: Repository) => {
   return (
