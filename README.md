@@ -12,6 +12,8 @@ A menubar app for macOS to view trending GitHub repositories.
 
 ## Demo
 
+![Demo](docs/gitrend.mp4)
+
 ## Tech Stack
 
 - [Rust](https://www.rust-lang.org/)
